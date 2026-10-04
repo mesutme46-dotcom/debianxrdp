@@ -43,3 +43,5 @@ RUN chmod +x /start.sh
 EXPOSE 3389
 
 CMD ["/start.sh"]
+
+CMD ["/start.sh"]
