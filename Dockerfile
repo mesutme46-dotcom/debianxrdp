@@ -1,8 +1,12 @@
-FROM debian:bullseye
+FROM debian:bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN dpkg --add-architecture i386
+
+RUN echo "deb http://snapshot.debian.org/archive/debian/20260825T000000Z bullseye main contrib non-free" > /etc/apt/sources.list && \
+    echo "deb http://snapshot.debian.org/archive/debian/20260825T000000Z bullseye-updates main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb http://snapshot.debian.org/archive/debian-security/20260825T000000Z bullseye-security main contrib non-free" >> /etc/apt/sources.list
 
 RUN apt update && apt install -y \
     xrdp \
